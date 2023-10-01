@@ -1,14 +1,16 @@
-import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import java.awt.Color;
+import java.awt.EventQueue;
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+
 
 public class StartBox extends JFrame {
 
@@ -20,7 +22,6 @@ public class StartBox extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -38,8 +39,8 @@ public class StartBox extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	
 	public StartBox() {
+		setType(Type.POPUP);
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
@@ -58,19 +59,17 @@ public class StartBox extends JFrame {
 		contentPane.add(lblTitel);
 		
 		JButton btnStart = new JButton("Start!");
-		btnStart.setBackground(new Color(34, 139, 34));
-		btnStart.setForeground(new Color(255, 255, 255));
-		btnStart.setFont(new Font("Arial Black", Font.PLAIN, 16));
 		btnStart.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				quiz = new MatheQuiz();
 				quiz.setVisible(true);
-//				quiz.setLocationRelativeTo(null);
 				start.setVisible(false); //close the window
-			}
+			} 
 		});
-		btnStart.setBounds(120, 80, 145, 55);
+		btnStart.setForeground(new Color(255, 255, 255));
+		btnStart.setBackground(new Color(46, 139, 87));
+		btnStart.setFont(new Font("Arial Black", Font.PLAIN, 16));
+		btnStart.setBounds(120, 80, 145, 55);		btnStart.setBorder(BorderFactory.createLineBorder(Color.green, 2));
 		contentPane.add(btnStart);
 	}
-
 }

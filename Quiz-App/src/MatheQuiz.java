@@ -5,6 +5,7 @@ import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import java.awt.Font;
 import javax.swing.SwingConstants;
@@ -12,6 +13,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 import java.awt.event.ActionEvent;
+
 
 public class MatheQuiz extends JFrame {
 
@@ -27,9 +29,10 @@ public class MatheQuiz extends JFrame {
 	 * Create the frame.
 	 */
 	public MatheQuiz() {
+		setType(Type.POPUP);
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(650, 100, 500, 450);
+		setBounds(700, 100, 500, 450);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(240, 230, 140));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -173,18 +176,16 @@ public class MatheQuiz extends JFrame {
 				} else {
 					JOptionPane.showMessageDialog(null, "Deine Score: " + score + " von 5 (Mehr Glück nächstes Mal!)", "Ergebnis", JOptionPane.INFORMATION_MESSAGE);
 				}
-				
 				StartBox.quiz.setVisible(false);
 				StartBox.start.setVisible(true);
 			}
-				
 		});
 		btnAbgeben.setForeground(new Color(255, 255, 255));
 		btnAbgeben.setBackground(new Color(46, 139, 87));
-		btnAbgeben.setFont(new Font("Arial Black", Font.PLAIN, 14));
+		btnAbgeben.setFont(new Font("Arial Black", Font.PLAIN, 16));
 		btnAbgeben.setBounds(321, 324, 129, 55);
+		btnAbgeben.setBorder(BorderFactory.createLineBorder(Color.green, 2));
 		contentPane.add(btnAbgeben);
-		
 	}
 
 	protected Integer parseInt(String string) {
